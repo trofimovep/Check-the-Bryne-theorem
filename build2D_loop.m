@@ -10,8 +10,8 @@ x = -10:0.1:10;
 
 % draw an input polygon
 figure(1);
-% axis([min(M(:,1))-1 max(M(:,1))+1 min(M(:,2))-1 max(M(:,2))+1]);
-% fill(M(:, 1),M(:, 2), 'y'); hold on;
+axis([min(M(:,1))-1 max(M(:,1))+1 min(M(:,2))-1 max(M(:,2))+1]);
+fill(M(:, 1),M(:, 2), 'y'); hold on;
 
 for i = 1:m
     if i == m
@@ -45,9 +45,9 @@ disp('Baricenter:'); disp(baricenter);
 x = [psolve(1) gpsol(1) baricenter(1)];
 y = [psolve(2) gpsol(2) baricenter(2)];
 
-% labels = {'pseudosolution', 'geometrical pseudosolution', 'baricenter'};
-% plot(x,y,'o')
-% text(x,y,labels,'VerticalAlignment','bottom','HorizontalAlignment','right');
+labels = {'pseudosolution', 'geometrical pseudosolution', 'baricenter'};
+plot(x,y,'o')
+text(x,y,labels,'VerticalAlignment','bottom','HorizontalAlignment','right');
 hold on;
 
 end

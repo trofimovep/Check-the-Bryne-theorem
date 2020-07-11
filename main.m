@@ -21,8 +21,8 @@ disp(requiredCycle);
 if n == 2
     real_cycle = kachmarz(gotSystem, B);
     disp(real_cycle);
-%     f = fill(real_cycle(:, 1), real_cycle(:,2), 'r');
-%     set(f,'facealpha',.7);
+    f = fill(real_cycle(:, 1), real_cycle(:,2), 'r');
+    set(f,'facealpha',.7);
     hold on;
 end
 
@@ -42,7 +42,7 @@ end
 [points_amount, ~] = size(loopPoints);
 
 [center, radius] = calcCircle(loopPoints(1,:), loopPoints(2,:), loopPoints(3,:));
-% viscircles(center,radius, 'Color', 'b'); 
+viscircles(center,radius, 'Color', 'b'); 
 hold off;
 
 
