@@ -2,8 +2,8 @@ clear; clc;
 
 inLinear = 0;
 outOfLinear = 0;
-for n = 3:3
-    for k = 2:7
+for n = 2:2
+    for k = 4:4
         m = n + k;
         disp("Number of variables: " + n);
         disp("Number of Equation: " + m);
