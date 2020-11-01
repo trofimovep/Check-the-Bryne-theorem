@@ -1,6 +1,6 @@
 function [current_values] = kachmarz(A, B)
 % The function returns the verticices of the limit cycle
-% which were got from the Kacmarz algo
+% which were got from the Kachmarz algo
     max_iteration = 50000;
     precision = 0.0001;
     [m, n] = size(A);       

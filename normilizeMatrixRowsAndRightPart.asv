@@ -9,8 +9,8 @@ for i = 1:m
     nrm = norm(ai);
     normilizedRowsMatrix(i ,:) = ai ./ nrm;
     normilizedRigtPart(i) = rightPart(i) / nrm;
-%     disp('Normailized Rows matrix'); disp(normilizedRowsMatrix);
-%     disp('Normailized Right Part by rows norm'); disp(normilizedRigtPart);
+    disp('Normailized Rows matrix'); disp(normilizedRowsMatrix);
+    disp('Normailized Right Part by rows norm'); disp(normilizedRigtPart);
 end
 end
 
