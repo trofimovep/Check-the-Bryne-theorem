@@ -3,7 +3,7 @@ clear; clc;
 inLinear = 0;
 outOfLinear = 0;
 for n = 2:2
-    for k = 4:4
+    for k = 3:7
         m = n + k;
         disp("Number of variables: " + n);
         disp("Number of Equation: " + m);
