@@ -1,0 +1,12 @@
+function [normilizedRowsMatrix] = normilizeMatrixRows(inputMatrix)
+%NORMILIZEMATRIXROWS normilize matrix rows
+[m, n] = size(inputMatrix);
+normilizedRowsMatrix = zeros(m, n);
+for i = 1:m
+    ai = inputMatrix(i, :);
+    nrm = norm(ai);
+    normilizedRowsMatrix(i ,:) = ai ./ nrm;
+    
+end
+end
+
