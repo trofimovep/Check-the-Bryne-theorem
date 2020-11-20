@@ -63,16 +63,10 @@ for n = 2:2
              for i=1:permutationsVars
                  for j = 1:n+1
                  % triangle R-T-L (vertices)
-                 if j ~= n+1 
-                     k = j + 1;
-                 else
-                     k = 1;
+                 RT_X = [subSystemsLoops(i, 1, 1),
                  end
-                 lx = [subSystemsLoops(i, j, 1), subSystemsLoops(i, k, 1)];
-                 ly = [subSystemsLoops(i, j, 2), subSystemsLoops(i, k, 2)];
-                 plot(lx, ly, 'Color', 'black');   
-                 hold on;
-                 end
+                 RT_X = [subSystemsLoops(i, 1, 1), 
+                 line(subSystemsLoops(i, :, 1), subSystemsLoops(var, :, 2), 'Color','black');
              end
              
             hold off; 
