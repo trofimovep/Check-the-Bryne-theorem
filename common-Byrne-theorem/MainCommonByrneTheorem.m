@@ -9,8 +9,7 @@ for n = 2:2
         disp("Number of Equation: " + m);
         [system, rightPart] = makeSystem(m, n);        
         [normSystem, normRightPart] = normilizeMatrixRowsAndRightPart(system, rightPart);
-        gpsol = pinv(normSystem) * normRightPart; % geometrical pseudosolution
-        
+        gpsol = pinv(normSystem) * normRightPart; % geometrical pseudosolution   
 %         permutations = arranges(m, n+1);
         permutations = [1 2 3; 2 3 4; 1 3 4; 1 2 4];
         [permutationsVars, ~] = size(permutations);
@@ -62,19 +61,15 @@ for n = 2:2
              
              for i=1:permutationsVars
                  for j = 1:n+1
-                 % triangle R-T-L (vertices)
-                 if j ~= n+1 
-                     k = j + 1;
-                 else
-                     k = 1;
+                     if j ~= n+1 k = j + 1;
+                     else k = 1;
+                     end
+                    lx = [subSystemsLoops(i, j, 1), subSystemsLoops(i, k, 1)];
+                    ly = [subSystemsLoops(i, j, 2), subSystemsLoops(i, k, 2)];
+                    plot(lx, ly, 'Color', 'black');   
+                    hold on;
                  end
-                 lx = [subSystemsLoops(i, j, 1), subSystemsLoops(i, k, 1)];
-                 ly = [subSystemsLoops(i, j, 2), subSystemsLoops(i, k, 2)];
-                 plot(lx, ly, 'Color', 'black');   
-                 hold on;
-                 end
-             end
-             
+             end          
             hold off; 
          end
     end

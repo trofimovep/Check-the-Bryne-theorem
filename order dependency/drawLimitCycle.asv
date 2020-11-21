@@ -1,0 +1,13 @@
+function [outputArg1,outputArg2] = drawLimitCycle(system, rightPart)
+%DRAWLIMITCYCLE Draws a limit cycle of a Kachmarz algorithm
+% NB!! needs a kacmarz.m function 
+
+[m,~] = size(normedSystem);
+if m ~= 2
+    disp("Imposible draw a cycle for a current size " + m);
+else
+    limitCycle = kachmarz(system, rightPart);
+end    
+
+end
+
