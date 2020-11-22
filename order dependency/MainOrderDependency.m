@@ -14,6 +14,7 @@ x = linspace(-10, 10);
 for i = 1:m
     y = (-system(i,1)*x + rightPart(i)) / system(i,2);
     plot(x, y, 'LineWidth', 1.5, 'color', 'black');
+    grid on;
     tl = texlabel('I');
     text(x(i), y(i), tl,'FontSize', 7);
     hold on;

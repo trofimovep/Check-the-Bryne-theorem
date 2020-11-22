@@ -1,4 +1,4 @@
-function [p] = drawLimitCycle(system, rightPart, color)
+function [] = drawLimitCycle(system, rightPart, color)
 %DRAWLIMITCYCLE Draws a limit cycle of a Kachmarz algorithm
 % NB!! needs a kacmarz.m function 
 [m,n] = size(system);
