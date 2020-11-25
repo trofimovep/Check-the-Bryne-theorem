@@ -1,4 +1,4 @@
-clear; clc;
+clear; clc; close all;
 
 n = 2; 
 m = 3;
@@ -10,7 +10,11 @@ permutations = perms(1:m);
 [permutationsVar, ~] = size(permutations);
 disp("Permutation amount: " + permutationsVar);
 
+colors = ['r', 'b', 'g'];
+legends = ['1-2-3 order', '1-3-2 order', '3-1-2 order'];
 x = linspace(-10, 10);
+
+figure;
 for i = 1:m
     y = (-system(i,1)*x + rightPart(i)) / system(i,2);
     plot(x, y, 'LineWidth', 1.5, 'color', 'black');
@@ -19,13 +23,9 @@ for i = 1:m
     text(x(i), y(i), tl,'FontSize', 7);
     hold on;
 end
-
-
-colors = ['r', 'b', 'g'];
-legends = ['1-2-3 order', '1-3-2 order', '3-1-2 order'];
 % 1 2 3 order
 drawLimitCycle(normSystem, normRightPart,colors(1));
-hold on;
+% hold on;
 
 % 1 3 2 order
 system132 = normSystem;
@@ -37,7 +37,15 @@ rightPart132 = rightPart;
 rightPartBuff = rightPart132(3);
 rightPart132(3) = rightPart132(2);
 rightPart132(2) = rightPartBuff;
-
+figure;
+for i = 1:m
+    y = (-system132(i,1)*x + rightPart132(i)) / system132(i,2);
+    plot(x, y, 'LineWidth', 1.5, 'color', 'black');
+    grid on;
+    tl = texlabel('I');
+    text(x(i), y(i), tl,'FontSize', 7);
+    hold on;
+end
 drawLimitCycle(system132, rightPart132,colors(2));
 
 % 3 1 2 order
@@ -50,6 +58,15 @@ rightPart312 = rightPart132;
 rightPartBuff = rightPart312(1);
 rightPart312(1) = rightPart312(2);
 rightPart312(2) = rightPartBuff;
+figure;
+for i = 1:m
+    y = (-system312(i,1)*x + rightPart312(i)) / system312(i,2);
+    plot(x, y, 'LineWidth', 1.5, 'color', 'black');
+    grid on;
+    tl = texlabel('I');
+    text(x(i), y(i), tl,'FontSize', 7);
+    hold on;
+end
 drawLimitCycle(system312, rightPart312, colors(3));
 
 
