@@ -6,10 +6,6 @@ m = 3;
 [normSystem, normRightPart] = normilizeMatrixRowsAndRightPart(system, rightPart);
 gpsol = pinv(normSystem) * normRightPart;
 
-permutations = perms(1:m);
-[permutationsVar, ~] = size(permutations);
-disp("Permutation amount: " + permutationsVar);
-
 colors = ['r', 'b', 'g'];
 legends = ['1-2-3 order', '1-3-2 order', '3-1-2 order'];
 x = linspace(-10, 10);
@@ -25,15 +21,13 @@ for i = 1:m
 end
 % 1 2 3 order
 drawLimitCycle(normSystem, normRightPart,colors(1));
-% hold on;
 
 % 1 3 2 order
 system132 = normSystem;
 systemBuff = system132(3,:);
 system132(3,:) = system132(2,:);
 system132(2,:) = systemBuff;
-
-rightPart132 = rightPart;
+rightPart132 = normRightPart;
 rightPartBuff = rightPart132(3);
 rightPart132(3) = rightPart132(2);
 rightPart132(2) = rightPartBuff;
@@ -53,7 +47,6 @@ system312 = system132;
 buff = system312(1,:);
 system312(1,:) = system312(2,:);
 system312(2,:) = buff;
-
 rightPart312 = rightPart132;
 rightPartBuff = rightPart312(1);
 rightPart312(1) = rightPart312(2);
@@ -68,5 +61,10 @@ for i = 1:m
     hold on;
 end
 drawLimitCycle(system312, rightPart312, colors(3));
+
+
+
+
+
 
 

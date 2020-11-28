@@ -11,7 +11,6 @@ end
 x0 = points(1, :);
 v = zeros(m - 1, 1);
 u = zeros(m - 1, n);
-
 for i = 2:m
     temp = points(i, :) - x0;
     norma = norm(temp);

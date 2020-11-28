@@ -21,7 +21,6 @@ for i = 1:m
         vi = M(i, :);
         next_vi = M(i + 1, :);
     end
-    
     [k1, k2] = two_point_equation(vi, next_vi);
     [a, b, c] = normal_throw_the_point(k1, k2, next_vi(1), next_vi(2));
     A(i, :) = [a, b];
@@ -32,7 +31,6 @@ for i = 1:m
     plot(x, y, 'r');
     hold on;
 end
-
 
 psolve = pinv(A) * B;
 gpsol = gpsolve(A, B);
