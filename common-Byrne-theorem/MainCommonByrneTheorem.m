@@ -41,11 +41,13 @@ for n = 2:2
         end
          % Plotting part
          if n == 2 && k == 2
+             figure;
              x=linspace(-11, 11);
              for i = 1:4
                 y = (-system(i,1)*x + rightPart(i)) / system(i,2);
                 plot(x, y, 'LineWidth', 1.5);
-                axis([gpsol(1)-2 gpsol(1)+2 gpsol(2)-2 gpsol(2)+2]);
+%                 axis([gpsol(1)-2 gpsol(1)+2 gpsol(2)-2 gpsol(2)+2]);
+                axis auto;
                 tl = texlabel("y=(" + -system(i,1)+"x+" + rightPart(i)+")/" +system(i,2));
                 text(x(i), y(i), tl,'FontSize', 7);
                 hold on;
@@ -53,12 +55,10 @@ for n = 2:2
              plot(gpsol(1),gpsol(2),'o','Color','r','MarkerEdgeColor','k',...
                  'MarkerFaceColor','r', 'MarkerSize',6);
              hold on;
-     
              for i=1:size(centers)
                  plot(centers(i, 1),centers(i, 2),'o','Color', 'magenta');
                  hold on;
              end
-             
              for i=1:permutationsVars
                  for j = 1:n+1
                      if j ~= n+1 k = j + 1;
